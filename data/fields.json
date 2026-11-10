@@ -1,0 +1,2539 @@
+{
+  "metric_name": "SILO Score",
+  "metric_long_name": "Statistical Isolation & Linkage Odds re-identification score",
+  "source_file": "PUMF2021_Hierarchical_spss_en.sps",
+  "dataset": "2021 Census Hierarchical PUMF (StatCan 98M0001X)",
+  "n_records": 361915,
+  "weight_field": "WEIGHT",
+  "id_fields": [
+    "CF_ID",
+    "EF_ID",
+    "HH_ID",
+    "PP_ID"
+  ],
+  "weight_fields": [
+    "WEIGHT",
+    "WT1",
+    "WT10",
+    "WT11",
+    "WT12",
+    "WT13",
+    "WT14",
+    "WT15",
+    "WT16",
+    "WT2",
+    "WT3",
+    "WT4",
+    "WT5",
+    "WT6",
+    "WT7",
+    "WT8",
+    "WT9"
+  ],
+  "importance_order": [
+    "AGEGRP",
+    "BUILT",
+    "EFDECILE",
+    "ROOM",
+    "SSGRAD",
+    "HDGREE",
+    "CIP2021",
+    "WRKACT",
+    "NAICS",
+    "NOC21",
+    "PR5",
+    "CFSTAT",
+    "ETHDER",
+    "PR1",
+    "HRSWRK",
+    "PR",
+    "LFACT",
+    "LOCSTUD",
+    "RELIG",
+    "WKSWRK",
+    "BEDRM",
+    "POWST",
+    "PWPR",
+    "MOB5",
+    "CFSTRUCT",
+    "CMA",
+    "LSTWRK",
+    "POBPAR2",
+    "MARSTH",
+    "PWLEAVE",
+    "NOL",
+    "JOBPERM",
+    "PWDUR",
+    "GENSTAT",
+    "DIST",
+    "POBPAR1",
+    "AGEIMM",
+    "MTNNO",
+    "LOC_ST_RES",
+    "COW",
+    "YRIM",
+    "PRESMORTG",
+    "ATTSCH",
+    "CF_RP",
+    "POB",
+    "EF_RP",
+    "LWMOSTFR",
+    "LWMOSTEN",
+    "FPTWK",
+    "MODE",
+    "DTYPE",
+    "KOL",
+    "HHMAINP",
+    "HLMOSTNO",
+    "CITOTH",
+    "CITIZEN",
+    "LWREGEN",
+    "REPAIR",
+    "GENDER",
+    "LWREGFR",
+    "LWMOSTNO",
+    "LWREGNO",
+    "IMMSTAT",
+    "PWOCC",
+    "SUBSIDY",
+    "VISMIN",
+    "FOL",
+    "MTNEN",
+    "PRIHM",
+    "HLMOSTEN",
+    "MOB1",
+    "LI_ELIG_OML_U18",
+    "TENUR",
+    "MTNFR",
+    "HLMOSTFR",
+    "STIR_GRP",
+    "HCORENEED_IND",
+    "LOLIMB",
+    "CONDO",
+    "LOLIMA",
+    "NOS",
+    "LICO_BT",
+    "LOMBM_2018",
+    "HLREGNO",
+    "ABOID",
+    "HLREGEN",
+    "LICO_AT",
+    "REGIND",
+    "HLREGFR",
+    "BFNMEMB"
+  ],
+  "fields": {
+    "ABOID": {
+      "name": "ABOID",
+      "label": "Indigenous: Indigenous identity - Detailed",
+      "topic": "Indigenous",
+      "reference_guide": "Indigenous Peoples Reference Guide",
+      "position": [
+        32,
+        32
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "First Nations (North American Indian)",
+        "2": "Métis",
+        "3": "Inuk(Inuit)",
+        "4": "Multiple Indigenous responses",
+        "5": "Indigenous responses not included elsewhere",
+        "6": "Non-Indigenous identity"
+      },
+      "cardinality": 6,
+      "entropy_bits": 0.3522,
+      "max_entropy_bits": 2.585,
+      "importance": 0.3522,
+      "importance_rank": 85
+    },
+    "AGEGRP": {
+      "name": "AGEGRP",
+      "label": "Age",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        33,
+        34
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "0 to 9 years",
+        "2": "10 to 14 years",
+        "3": "15 to 19 years",
+        "4": "20 to 24 years",
+        "5": "25 to 29 years",
+        "6": "30 to 34 years",
+        "7": "35 to 39 years",
+        "8": "40 to 44 years",
+        "9": "45 to 49 years",
+        "10": "50 to 54 years",
+        "11": "55 to 64 years",
+        "12": "65 to 74 years",
+        "13": "75 years and over",
+        "88": "Not available"
+      },
+      "cardinality": 14,
+      "entropy_bits": 3.733,
+      "max_entropy_bits": 3.8074,
+      "importance": 3.733,
+      "importance_rank": 1
+    },
+    "AGEIMM": {
+      "name": "AGEIMM",
+      "label": "Immigration: Age at Immigration",
+      "topic": "Immigration",
+      "reference_guide": "Place of Birth, Generation Status, Citizenship and Immigration Reference Guide",
+      "position": [
+        35,
+        36
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "0 to 9 years",
+        "2": "10 to 14 years",
+        "3": "15 to 19 years",
+        "4": "20 to 24 years",
+        "5": "25 to 29 years",
+        "6": "30 to 34 years",
+        "7": "35 to 39 years",
+        "8": "40 to 44 years",
+        "9": "45 to 49 years",
+        "10": "50 to 54 years",
+        "11": "55 to 64 years",
+        "12": "65 years and over",
+        "88": "Not available",
+        "99": "Not applicable"
+      },
+      "cardinality": 14,
+      "entropy_bits": 1.6268,
+      "max_entropy_bits": 3.8074,
+      "importance": 1.6268,
+      "importance_rank": 37
+    },
+    "ATTSCH": {
+      "name": "ATTSCH",
+      "label": "Education: School attendance",
+      "topic": "Education",
+      "reference_guide": "Education Reference Guide",
+      "position": [
+        37,
+        37
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Did not attend school",
+        "1": "Attended school",
+        "8": "Not available",
+        "9": "Not applicable"
+      },
+      "cardinality": 4,
+      "entropy_bits": 1.472,
+      "max_entropy_bits": 2.0,
+      "importance": 1.472,
+      "importance_rank": 43
+    },
+    "BEDRM": {
+      "name": "BEDRM",
+      "label": "Bedrooms",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        38,
+        38
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "No bedroom",
+        "1": "1 bedroom",
+        "2": "2 bedrooms",
+        "3": "3 bedrooms",
+        "4": "4 bedrooms",
+        "5": "5 bedrooms or more",
+        "8": "Not available"
+      },
+      "cardinality": 7,
+      "entropy_bits": 2.1894,
+      "max_entropy_bits": 2.8074,
+      "importance": 2.1894,
+      "importance_rank": 21
+    },
+    "BFNMEMB": {
+      "name": "BFNMEMB",
+      "label": "Indigenous: Membership in a First Nation or Indian band",
+      "topic": "Indigenous",
+      "reference_guide": "Indigenous Peoples Reference Guide",
+      "position": [
+        39,
+        39
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Not a member of a First Nation or Indian band",
+        "1": "Member of a First Nation or Indian band"
+      },
+      "cardinality": 2,
+      "entropy_bits": 0.1485,
+      "max_entropy_bits": 1.0,
+      "importance": 0.1485,
+      "importance_rank": 90
+    },
+    "BUILT": {
+      "name": "BUILT",
+      "label": "Period of construction",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        40,
+        41
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "1945 or before",
+        "2": "1946 to 1960",
+        "3": "1961 to 1970",
+        "4": "1971 to 1980",
+        "5": "1981 to 1990",
+        "6": "1991 to 1995",
+        "7": "1996 to 2000",
+        "8": "2001 to 2005",
+        "9": "2006 to 2010",
+        "10": "2011 to 2015",
+        "11": "2016 to 2021",
+        "88": "Not available"
+      },
+      "cardinality": 12,
+      "entropy_bits": 3.3997,
+      "max_entropy_bits": 3.585,
+      "importance": 3.3997,
+      "importance_rank": 2
+    },
+    "CF_RP": {
+      "name": "CF_RP",
+      "label": "Census family reference person",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        42,
+        42
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Census family reference person",
+        "2": "Other census family member",
+        "3": "Person not in a census family"
+      },
+      "cardinality": 3,
+      "entropy_bits": 1.4562,
+      "max_entropy_bits": 1.585,
+      "importance": 1.4562,
+      "importance_rank": 44
+    },
+    "CFSTAT": {
+      "name": "CFSTAT",
+      "label": "Household living arrangements of person",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        43,
+        44
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Married spouse or common-law partner without children",
+        "2": "Married spouse or common-law partner with children",
+        "3": "Parent in a one-parent family",
+        "4": "Child of a couple",
+        "5": "Child of a parent in a one-parent family",
+        "6": "Person living alone",
+        "7": "Person not in a census family, living with non-relatives only",
+        "8": "Person not in a census family, living with relatives",
+        "88": "Not available"
+      },
+      "cardinality": 9,
+      "entropy_bits": 2.695,
+      "max_entropy_bits": 3.1699,
+      "importance": 2.695,
+      "importance_rank": 12
+    },
+    "CFSTRUCT": {
+      "name": "CFSTRUCT",
+      "label": "Census family structure",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        45,
+        45
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Couple without children",
+        "2": "Couple with children",
+        "3": "One-parent family",
+        "8": "Not available",
+        "9": "Not applicable"
+      },
+      "cardinality": 5,
+      "entropy_bits": 1.9077,
+      "max_entropy_bits": 2.3219,
+      "importance": 1.9077,
+      "importance_rank": 25
+    },
+    "CIP2021": {
+      "name": "CIP2021",
+      "label": "Education: Major field of study, primary groupings (based on CIP Canada 2021)",
+      "topic": "Education",
+      "reference_guide": "Education Reference Guide",
+      "position": [
+        46,
+        47
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "01 Education",
+        "2": "02 Visual and performing arts, and communications technologies",
+        "3": "03 Humanities",
+        "4": "04 Social and behavioural sciences and law",
+        "5": "05 Business, management and public administration",
+        "6": "06 Physical and life sciences and technologies",
+        "7": "07 Mathematics, computer and information sciences",
+        "8": "08 Architecture, engineering, and related trades",
+        "9": "09 Agriculture, natural resources and conservation",
+        "10": "10 Health and related fields",
+        "11": "11 Personal, protective and transportation services",
+        "12": "12 Other",
+        "13": "No postsecondary certificate, diploma or degree",
+        "88": "Not available",
+        "99": "Not applicable"
+      },
+      "cardinality": 14,
+      "entropy_bits": 3.0605,
+      "max_entropy_bits": 3.8074,
+      "importance": 3.0605,
+      "importance_rank": 7
+    },
+    "CITIZEN": {
+      "name": "CITIZEN",
+      "label": "Citizenship: Citizenship status and type – Summary",
+      "topic": "Citizenship",
+      "reference_guide": "Place of Birth, Generation Status, Citizenship and Immigration Reference Guide",
+      "position": [
+        48,
+        48
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Canadian citizens by birth",
+        "2": "Canadian citizens by naturalization",
+        "3": "Not a Canadian citizen",
+        "8": "Not available"
+      },
+      "cardinality": 4,
+      "entropy_bits": 1.1775,
+      "max_entropy_bits": 2.0,
+      "importance": 1.1775,
+      "importance_rank": 56
+    },
+    "CITOTH": {
+      "name": "CITOTH",
+      "label": "Citizenship: Other country of citizenship",
+      "topic": "Citizenship",
+      "reference_guide": "Place of Birth, Generation Status, Citizenship and Immigration Reference Guide",
+      "position": [
+        49,
+        49
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "United States of America",
+        "2": "Europe",
+        "3": "Asia",
+        "4": "Other single and multiple citizenships other than Canadian",
+        "5": "No other country of citizenship",
+        "8": "Not available"
+      },
+      "cardinality": 6,
+      "entropy_bits": 1.1956,
+      "max_entropy_bits": 2.585,
+      "importance": 1.1956,
+      "importance_rank": 55
+    },
+    "CMA": {
+      "name": "CMA",
+      "label": "Census metropolitan area or census agglomeration of current residence (2021)",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        50,
+        52
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "462": "Montréal",
+        "535": "Toronto",
+        "825": "Calgary",
+        "835": "Edmonton",
+        "933": "Vancouver",
+        "999": "Other census metropolitan areas, census agglomerations and other geographies"
+      },
+      "cardinality": 6,
+      "entropy_bits": 1.8987,
+      "max_entropy_bits": 2.585,
+      "importance": 1.8987,
+      "importance_rank": 26
+    },
+    "CONDO": {
+      "name": "CONDO",
+      "label": "Condominium status",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        53,
+        53
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Not condominium",
+        "1": "Condominium",
+        "8": "Not available"
+      },
+      "cardinality": 3,
+      "entropy_bits": 0.534,
+      "max_entropy_bits": 1.585,
+      "importance": 0.534,
+      "importance_rank": 79
+    },
+    "COW": {
+      "name": "COW",
+      "label": "Labour: Class of worker",
+      "topic": "Labour",
+      "reference_guide": "Labour Reference Guide",
+      "position": [
+        54,
+        54
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Employee",
+        "2": "Self-employed, without paid help",
+        "3": "Self-employed, with paid help",
+        "4": "Unpaid family worker",
+        "8": "Not available",
+        "9": "Not applicable"
+      },
+      "cardinality": 6,
+      "entropy_bits": 1.5585,
+      "max_entropy_bits": 2.585,
+      "importance": 1.5585,
+      "importance_rank": 40
+    },
+    "DIST": {
+      "name": "DIST",
+      "label": "Commuting: Distance (straight-line) from home to work",
+      "topic": "Commuting",
+      "reference_guide": "Commuting Reference Guide",
+      "position": [
+        55,
+        55
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Less than 5 km",
+        "2": "5 to 9.9 km",
+        "3": "10 to 14.9 km",
+        "4": "15 to 19.9 km",
+        "5": "20 to 24.9 km",
+        "6": "25 to 29.9 km",
+        "7": "Greater or equal to 30 km",
+        "8": "Not available",
+        "9": "Not applicable"
+      },
+      "cardinality": 9,
+      "entropy_bits": 1.719,
+      "max_entropy_bits": 3.1699,
+      "importance": 1.719,
+      "importance_rank": 35
+    },
+    "DTYPE": {
+      "name": "DTYPE",
+      "label": "Structural type of dwelling",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        56,
+        56
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Single-detached house",
+        "2": "Apartment",
+        "3": "Other dwelling",
+        "8": "Not available"
+      },
+      "cardinality": 4,
+      "entropy_bits": 1.3597,
+      "max_entropy_bits": 2.0,
+      "importance": 1.3597,
+      "importance_rank": 51
+    },
+    "EF_RP": {
+      "name": "EF_RP",
+      "label": "Economic family reference person",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        57,
+        57
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Economic family reference person",
+        "2": "Economic family member other than the reference person",
+        "3": "Person not in an economic family"
+      },
+      "cardinality": 3,
+      "entropy_bits": 1.4109,
+      "max_entropy_bits": 1.585,
+      "importance": 1.4109,
+      "importance_rank": 46
+    },
+    "EFDECILE": {
+      "name": "EFDECILE",
+      "label": "Income: National economic family after-tax income decile for all persons",
+      "topic": "Income",
+      "reference_guide": "Income Reference Guide",
+      "position": [
+        66,
+        67
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "In bottom decile",
+        "2": "In second decile",
+        "3": "In third decile",
+        "4": "In fourth decile",
+        "5": "In fifth decile",
+        "6": "In sixth decile",
+        "7": "In seventh decile",
+        "8": "In eighth decile",
+        "9": "In ninth decile",
+        "10": "In top decile",
+        "88": "Not available"
+      },
+      "cardinality": 11,
+      "entropy_bits": 3.3238,
+      "max_entropy_bits": 3.4594,
+      "importance": 3.3238,
+      "importance_rank": 3
+    },
+    "ETHDER": {
+      "name": "ETHDER",
+      "label": "Ethnic or cultural origin: Aggregated responses",
+      "topic": "Ethnic or cultural origin",
+      "reference_guide": "Ethnic or Cultural Origin Reference Guide",
+      "position": [
+        84,
+        85
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "North American Indigenous origins",
+        "2": "Other North American origins",
+        "3": "British Isles origins",
+        "4": "French origins",
+        "5": "Other European origins",
+        "6": "Asian origins",
+        "7": "Other single origins",
+        "8": "Multiple ethnic or cultural origins",
+        "88": "Not available"
+      },
+      "cardinality": 9,
+      "entropy_bits": 2.6836,
+      "max_entropy_bits": 3.1699,
+      "importance": 2.6836,
+      "importance_rank": 13
+    },
+    "FOL": {
+      "name": "FOL",
+      "label": "Language: First official language spoken",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        94,
+        94
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "English",
+        "2": "French",
+        "3": "English and French",
+        "4": "Neither English nor French",
+        "8": "Not available"
+      },
+      "cardinality": 5,
+      "entropy_bits": 0.9837,
+      "max_entropy_bits": 2.3219,
+      "importance": 0.9837,
+      "importance_rank": 67
+    },
+    "FPTWK": {
+      "name": "FPTWK",
+      "label": "Labour: Full-time or part-time weeks worked in 2020",
+      "topic": "Labour",
+      "reference_guide": "Labour Reference Guide",
+      "position": [
+        95,
+        95
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Worked mainly full-time weeks in 2020",
+        "2": "Worked mainly part-time weeks in 2020",
+        "9": "Not applicable"
+      },
+      "cardinality": 3,
+      "entropy_bits": 1.3949,
+      "max_entropy_bits": 1.585,
+      "importance": 1.3949,
+      "importance_rank": 49
+    },
+    "GENDER": {
+      "name": "GENDER",
+      "label": "Gender of person (binary)",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        96,
+        96
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Woman+",
+        "2": "Man+",
+        "8": "Not available"
+      },
+      "cardinality": 3,
+      "entropy_bits": 1.124,
+      "max_entropy_bits": 1.585,
+      "importance": 1.124,
+      "importance_rank": 59
+    },
+    "GENSTAT": {
+      "name": "GENSTAT",
+      "label": "Generation status: Detailed",
+      "topic": "Generation status",
+      "reference_guide": "Place of Birth, Generation Status, Citizenship and Immigration Reference Guide",
+      "position": [
+        97,
+        97
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "First generation",
+        "2": "Second generation - All parents born outside Canada",
+        "3": "Second generation - One parent born in Canada and one parent born outside Canada",
+        "4": "Third generation or more",
+        "8": "Not available"
+      },
+      "cardinality": 5,
+      "entropy_bits": 1.7636,
+      "max_entropy_bits": 2.3219,
+      "importance": 1.7636,
+      "importance_rank": 34
+    },
+    "HCORENEED_IND": {
+      "name": "HCORENEED_IND",
+      "label": "Housing core need indicator",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        106,
+        108
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Not in core need",
+        "100": "In core need",
+        "888": "Not available"
+      },
+      "cardinality": 3,
+      "entropy_bits": 0.6073,
+      "max_entropy_bits": 1.585,
+      "importance": 0.6073,
+      "importance_rank": 77
+    },
+    "HDGREE": {
+      "name": "HDGREE",
+      "label": "Education: Highest certificate, diploma or degree",
+      "topic": "Education",
+      "reference_guide": "Education Reference Guide",
+      "position": [
+        109,
+        110
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "No certificate, diploma or degree",
+        "2": "High (secondary) school diploma or equivalency certificate",
+        "3": "Non-apprenticeship trades certificate or diploma",
+        "4": "Apprenticeship certificate",
+        "5": "College, CEGEP or other non-university certificate or diploma",
+        "6": "University certificate or diploma below bachelor level",
+        "7": "Bachelor's degree",
+        "8": "University certificate, diploma or degree above bachelor level",
+        "88": "Not available",
+        "99": "Not applicable"
+      },
+      "cardinality": 10,
+      "entropy_bits": 3.0677,
+      "max_entropy_bits": 3.3219,
+      "importance": 3.0677,
+      "importance_rank": 6
+    },
+    "HHMAINP": {
+      "name": "HHMAINP",
+      "label": "Person responsible for household payments",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        111,
+        111
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Person is not responsible for household payments",
+        "1": "Person is responsible for household payments",
+        "9": "Not applicable"
+      },
+      "cardinality": 3,
+      "entropy_bits": 1.2946,
+      "max_entropy_bits": 1.585,
+      "importance": 1.2946,
+      "importance_rank": 53
+    },
+    "HLMOSTEN": {
+      "name": "HLMOSTEN",
+      "label": "Language: Language spoken most often at home - English component",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        112,
+        112
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "False - Respondent did not report English as the language spoken most often at home",
+        "1": "True - Respondent reported English as the language spoken most often at home"
+      },
+      "cardinality": 2,
+      "entropy_bits": 0.9071,
+      "max_entropy_bits": 1.0,
+      "importance": 0.9071,
+      "importance_rank": 70
+    },
+    "HLMOSTFR": {
+      "name": "HLMOSTFR",
+      "label": "Language: Language spoken most often at home - French component",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        113,
+        113
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "False - Respondent did not report French as the language spoken most often at home",
+        "1": "True - Respondent reported French as the language spoken most often at home"
+      },
+      "cardinality": 2,
+      "entropy_bits": 0.7275,
+      "max_entropy_bits": 1.0,
+      "importance": 0.7275,
+      "importance_rank": 75
+    },
+    "HLMOSTNO": {
+      "name": "HLMOSTNO",
+      "label": "Language: Language spoken most often at home - First write-in component",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        114,
+        115
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "No non-official language",
+        "2": "Chinese languages",
+        "3": "Spanish",
+        "4": "Italian",
+        "5": "German",
+        "6": "Arabic",
+        "7": "Punjabi (Panjabi)",
+        "8": "Tagalog (Pilipino, Filipino)",
+        "9": "Portuguese",
+        "10": "All other languages",
+        "88": "Not available"
+      },
+      "cardinality": 11,
+      "entropy_bits": 1.2918,
+      "max_entropy_bits": 3.4594,
+      "importance": 1.2918,
+      "importance_rank": 54
+    },
+    "HLREGEN": {
+      "name": "HLREGEN",
+      "label": "Language: Other language(s) spoken regularly at home - English component",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        116,
+        116
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "False - Respondent did not report English as the other language spoken at home on a regular basis",
+        "1": "True - Respondent reported English as the other language spoken at home on a regular basis"
+      },
+      "cardinality": 2,
+      "entropy_bits": 0.3427,
+      "max_entropy_bits": 1.0,
+      "importance": 0.3427,
+      "importance_rank": 86
+    },
+    "HLREGFR": {
+      "name": "HLREGFR",
+      "label": "Language: Other language(s) spoken regularly at home - French component",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        117,
+        117
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "False - Respondent did not report French as the other language spoken at home on a regular basis",
+        "1": "True - Respondent reported French as the other language spoken at home on a regular basis"
+      },
+      "cardinality": 2,
+      "entropy_bits": 0.1529,
+      "max_entropy_bits": 1.0,
+      "importance": 0.1529,
+      "importance_rank": 89
+    },
+    "HLREGNO": {
+      "name": "HLREGNO",
+      "label": "Language: Other language(s) spoken regularly at home - First write-in component",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        118,
+        118
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "False - Respondent did not report a non-official language as the language spoken at home on a regular basis",
+        "1": "True - Respondent reported a non-official language as the language spoken at home on a regular basis"
+      },
+      "cardinality": 2,
+      "entropy_bits": 0.3957,
+      "max_entropy_bits": 1.0,
+      "importance": 0.3957,
+      "importance_rank": 84
+    },
+    "HRSWRK": {
+      "name": "HRSWRK",
+      "label": "Labour: Hours worked for pay or in self-employment",
+      "topic": "Labour",
+      "reference_guide": "Labour Reference Guide",
+      "position": [
+        119,
+        120
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "No hours of work",
+        "1": "1 to 9 hours of work",
+        "2": "10 to 19 hours of work",
+        "3": "20 to 29 hours of work",
+        "4": "30 to 37 hours of work",
+        "5": "38 to 40 hours of work",
+        "6": "41 to 49 hours of work",
+        "7": "50 to 59 hours of work",
+        "8": "60 to 69 hours of work",
+        "9": "70 to 79 hours of work",
+        "10": "80 hours or more of work",
+        "99": "Not applicable"
+      },
+      "cardinality": 12,
+      "entropy_bits": 2.6086,
+      "max_entropy_bits": 3.585,
+      "importance": 2.6086,
+      "importance_rank": 15
+    },
+    "IMMSTAT": {
+      "name": "IMMSTAT",
+      "label": "Immigration: Immigrant status",
+      "topic": "Immigration",
+      "reference_guide": "Place of Birth, Generation Status, Citizenship and Immigration Reference Guide",
+      "position": [
+        121,
+        121
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Non-immigrants",
+        "2": "Immigrants",
+        "3": "Non-permanent residents",
+        "8": "Not available"
+      },
+      "cardinality": 4,
+      "entropy_bits": 1.0667,
+      "max_entropy_bits": 2.0,
+      "importance": 1.0667,
+      "importance_rank": 63
+    },
+    "JOBPERM": {
+      "name": "JOBPERM",
+      "label": "Labour: Job permanency",
+      "topic": "Labour",
+      "reference_guide": "Labour Reference Guide",
+      "position": [
+        130,
+        130
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Other employment - unpaid, self employed",
+        "2": "Employee - Permanent position",
+        "3": "Employee - Fixed term (1 year or more) / Casual, seasonal or short-term position (less than 1 year)",
+        "8": "Not available",
+        "9": "Not applicable"
+      },
+      "cardinality": 5,
+      "entropy_bits": 1.8105,
+      "max_entropy_bits": 2.3219,
+      "importance": 1.8105,
+      "importance_rank": 32
+    },
+    "KOL": {
+      "name": "KOL",
+      "label": "Language: Knowledge of official languages",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        131,
+        131
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "English only",
+        "2": "French only",
+        "3": "English and French",
+        "4": "Neither English nor French",
+        "8": "Not available"
+      },
+      "cardinality": 5,
+      "entropy_bits": 1.3523,
+      "max_entropy_bits": 2.3219,
+      "importance": 1.3523,
+      "importance_rank": 52
+    },
+    "LFACT": {
+      "name": "LFACT",
+      "label": "Labour: Labour force status - Detailed",
+      "topic": "Labour",
+      "reference_guide": "Labour Reference Guide",
+      "position": [
+        132,
+        133
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Employed - Worked in reference week ",
+        "2": "Employed - Absent in reference week",
+        "3": "Unemployed - Temporary layoff - Did not look for work",
+        "4": "Unemployed - Temporary layoff - Looked for full-time work",
+        "5": "Unemployed - Temporary layoff - Looked for part-time work",
+        "6": "Unemployed - New job - Did not look for work",
+        "7": "Unemployed - New job - Looked for full-time work",
+        "8": "Unemployed - New job - Looked for part-time work",
+        "9": "Unemployed - Looked for full-time work",
+        "10": "Unemployed - Looked for part-time work",
+        "11": "Not in the labour force - Last worked in 2021",
+        "12": "Not in the labour force - Last worked in 2020",
+        "13": "Not in the labour force - Last worked before 2020",
+        "14": "Not in the labour force - Never worked",
+        "99": "Not applicable"
+      },
+      "cardinality": 15,
+      "entropy_bits": 2.4303,
+      "max_entropy_bits": 3.9069,
+      "importance": 2.4303,
+      "importance_rank": 17
+    },
+    "LI_ELIG_OML_U18": {
+      "name": "LI_ELIG_OML_U18",
+      "label": "Language: Eligibility for instruction in the minority official language",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        134,
+        134
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Child not eligible",
+        "1": "Eligible child",
+        "9": "Not applicable"
+      },
+      "cardinality": 3,
+      "entropy_bits": 0.8681,
+      "max_entropy_bits": 1.585,
+      "importance": 0.8681,
+      "importance_rank": 72
+    },
+    "LICO_AT": {
+      "name": "LICO_AT",
+      "label": "Income: Low-income status based on LICO-AT",
+      "topic": "Income",
+      "reference_guide": "Income Reference Guide",
+      "position": [
+        135,
+        135
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Not in low income",
+        "1": "In low income",
+        "8": "Not available",
+        "9": "Not applicable"
+      },
+      "cardinality": 4,
+      "entropy_bits": 0.3291,
+      "max_entropy_bits": 2.0,
+      "importance": 0.3291,
+      "importance_rank": 87
+    },
+    "LICO_BT": {
+      "name": "LICO_BT",
+      "label": "Income: Low-income status based on LICO-BT",
+      "topic": "Income",
+      "reference_guide": "Income Reference Guide",
+      "position": [
+        136,
+        136
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Not in low income",
+        "1": "In low income",
+        "8": "Not available",
+        "9": "Not applicable"
+      },
+      "cardinality": 4,
+      "entropy_bits": 0.4263,
+      "max_entropy_bits": 2.0,
+      "importance": 0.4263,
+      "importance_rank": 82
+    },
+    "LOC_ST_RES": {
+      "name": "LOC_ST_RES",
+      "label": "Education: Location of study compared with province or territory of residence - Summary",
+      "topic": "Education",
+      "reference_guide": "Education Reference Guide",
+      "position": [
+        137,
+        137
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Same as province or territory of residence",
+        "2": "Different than province or territory of residence",
+        "3": "Outside Canada",
+        "8": "Not available",
+        "9": "Not applicable"
+      },
+      "cardinality": 5,
+      "entropy_bits": 1.6127,
+      "max_entropy_bits": 2.3219,
+      "importance": 1.6127,
+      "importance_rank": 39
+    },
+    "LOCSTUD": {
+      "name": "LOCSTUD",
+      "label": "Education: Location of study",
+      "topic": "Education",
+      "reference_guide": "Education Reference Guide",
+      "position": [
+        138,
+        139
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Atlantic",
+        "2": "Quebec",
+        "3": "Ontario",
+        "4": "Prairies",
+        "5": "British Columbia",
+        "6": "Northern Canada",
+        "7": "United States of America",
+        "8": "Other Americas",
+        "9": "Europe",
+        "10": "Eastern Asia",
+        "11": "Southeast and Southern Asia",
+        "12": "Other countries and regions",
+        "88": "Not available",
+        "99": "Not applicable"
+      },
+      "cardinality": 14,
+      "entropy_bits": 2.4188,
+      "max_entropy_bits": 3.8074,
+      "importance": 2.4188,
+      "importance_rank": 18
+    },
+    "LOLIMA": {
+      "name": "LOLIMA",
+      "label": "Income: Low-income status based on LIM-AT",
+      "topic": "Income",
+      "reference_guide": "Income Reference Guide",
+      "position": [
+        140,
+        140
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Not in low income",
+        "1": "In low income",
+        "8": "Not available"
+      },
+      "cardinality": 3,
+      "entropy_bits": 0.5049,
+      "max_entropy_bits": 1.585,
+      "importance": 0.5049,
+      "importance_rank": 80
+    },
+    "LOLIMB": {
+      "name": "LOLIMB",
+      "label": "Income: Low-income status based on LIM-BT",
+      "topic": "Income",
+      "reference_guide": "Income Reference Guide",
+      "position": [
+        141,
+        141
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Not in low income",
+        "1": "In low income",
+        "8": "Not available"
+      },
+      "cardinality": 3,
+      "entropy_bits": 0.592,
+      "max_entropy_bits": 1.585,
+      "importance": 0.592,
+      "importance_rank": 78
+    },
+    "LOMBM_2018": {
+      "name": "LOMBM_2018",
+      "label": "Income: Low-income status based on 2018-base MBM",
+      "topic": "Income",
+      "reference_guide": "Income Reference Guide",
+      "position": [
+        142,
+        142
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Not in poverty",
+        "1": "In poverty",
+        "8": "Not available"
+      },
+      "cardinality": 3,
+      "entropy_bits": 0.4173,
+      "max_entropy_bits": 1.585,
+      "importance": 0.4173,
+      "importance_rank": 83
+    },
+    "LSTWRK": {
+      "name": "LSTWRK",
+      "label": "Labour: When last worked for pay or in self-employment",
+      "topic": "Labour",
+      "reference_guide": "Labour Reference Guide",
+      "position": [
+        143,
+        143
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Last worked before 2020",
+        "2": "Last worked in 2020",
+        "3": "Last worked in 2021",
+        "4": "Never worked",
+        "9": "Not applicable"
+      },
+      "cardinality": 5,
+      "entropy_bits": 1.8824,
+      "max_entropy_bits": 2.3219,
+      "importance": 1.8824,
+      "importance_rank": 27
+    },
+    "LWMOSTEN": {
+      "name": "LWMOSTEN",
+      "label": "Language: Language used most often at work - English component",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        144,
+        144
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "False - Respondent did not report English as the language used most often at work",
+        "1": "True - Respondent reported English as the language used most often at work",
+        "9": "Not applicable"
+      },
+      "cardinality": 3,
+      "entropy_bits": 1.4066,
+      "max_entropy_bits": 1.585,
+      "importance": 1.4066,
+      "importance_rank": 48
+    },
+    "LWMOSTFR": {
+      "name": "LWMOSTFR",
+      "label": "Language: Language used most often at work - French component",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        145,
+        145
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "False - Respondent did not report French as the language used most often at work",
+        "1": "True - Respondent reported French as the language used most often at work",
+        "9": "Not applicable"
+      },
+      "cardinality": 3,
+      "entropy_bits": 1.4071,
+      "max_entropy_bits": 1.585,
+      "importance": 1.4071,
+      "importance_rank": 47
+    },
+    "LWMOSTNO": {
+      "name": "LWMOSTNO",
+      "label": "Language: Language used most often at work - First write-in component",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        146,
+        146
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "False - Respondent did not report a non-official language as the language used most often at work",
+        "1": "True - Respondent reported a non-official language as the language used most often at work",
+        "9": "Not applicable"
+      },
+      "cardinality": 3,
+      "entropy_bits": 1.0739,
+      "max_entropy_bits": 1.585,
+      "importance": 1.0739,
+      "importance_rank": 61
+    },
+    "LWREGEN": {
+      "name": "LWREGEN",
+      "label": "Language: Other language(s) used regularly at work - English component",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        147,
+        147
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "False - Respondent did not report English as the other language used at work on a regular basis",
+        "1": "True - Respondent reported English as the other language used at work on a regular basis",
+        "9": "Not applicable"
+      },
+      "cardinality": 3,
+      "entropy_bits": 1.1379,
+      "max_entropy_bits": 1.585,
+      "importance": 1.1379,
+      "importance_rank": 57
+    },
+    "LWREGFR": {
+      "name": "LWREGFR",
+      "label": "Language: Other language(s) used regularly at work - French component",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        148,
+        148
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "False - Respondent did not report French as the other language used at work on a regular basis",
+        "1": "True - Respondent reported French as the other language used at work on a regular basis",
+        "9": "Not applicable"
+      },
+      "cardinality": 3,
+      "entropy_bits": 1.098,
+      "max_entropy_bits": 1.585,
+      "importance": 1.098,
+      "importance_rank": 60
+    },
+    "LWREGNO": {
+      "name": "LWREGNO",
+      "label": "Language: Other language(s) used regularly at work - First write-in component",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        149,
+        149
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "False - Respondent did not report a non-official language as the language used on a regular basis at work",
+        "1": "True - Respondent reported a non-official language as the language used on a regular basis at work",
+        "9": "Not applicable"
+      },
+      "cardinality": 3,
+      "entropy_bits": 1.0703,
+      "max_entropy_bits": 1.585,
+      "importance": 1.0703,
+      "importance_rank": 62
+    },
+    "MARSTH": {
+      "name": "MARSTH",
+      "label": "Marital status (de facto)",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        150,
+        150
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Never married (not living common law)",
+        "2": "Married",
+        "3": "Living common law",
+        "4": "Separated, divorced or widowed (not living common law)",
+        "8": "Not available"
+      },
+      "cardinality": 5,
+      "entropy_bits": 1.8483,
+      "max_entropy_bits": 2.3219,
+      "importance": 1.8483,
+      "importance_rank": 29
+    },
+    "MOB1": {
+      "name": "MOB1",
+      "label": "Mobility 1: Mobility Status - Place of residence 1 year ago (2020)",
+      "topic": "Mobility 1",
+      "reference_guide": "Mobility and Migration Reference Guide",
+      "position": [
+        151,
+        151
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Non-movers",
+        "2": "Non-migrants",
+        "3": "Different CSD, same census division",
+        "4": "Different CD, same province",
+        "5": "Interprovincial migrants",
+        "6": "External migrants",
+        "8": "Not available"
+      },
+      "cardinality": 7,
+      "entropy_bits": 0.8841,
+      "max_entropy_bits": 2.8074,
+      "importance": 0.8841,
+      "importance_rank": 71
+    },
+    "MOB5": {
+      "name": "MOB5",
+      "label": "Mobility 5: Mobility Status - Place of residence 5 years ago (2016)",
+      "topic": "Mobility 5",
+      "reference_guide": "Mobility and Migration Reference Guide",
+      "position": [
+        152,
+        152
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Non-movers",
+        "2": "Non-migrants",
+        "3": "Different CSD, same census division",
+        "4": "Different CD, same province",
+        "5": "Interprovincial migrants",
+        "6": "External migrants",
+        "9": "Not applicable"
+      },
+      "cardinality": 7,
+      "entropy_bits": 1.9684,
+      "max_entropy_bits": 2.8074,
+      "importance": 1.9684,
+      "importance_rank": 24
+    },
+    "MODE": {
+      "name": "MODE",
+      "label": "Commuting: Main mode of commuting",
+      "topic": "Commuting",
+      "reference_guide": "Commuting Reference Guide",
+      "position": [
+        153,
+        153
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Bicycle",
+        "2": "Car, truck or van - as a driver",
+        "3": "Motorcycle, scooter or moped",
+        "4": "Other method",
+        "5": "Car, truck or van - as a passenger",
+        "6": "Public transit",
+        "7": "Walked",
+        "9": "Not applicable"
+      },
+      "cardinality": 8,
+      "entropy_bits": 1.3893,
+      "max_entropy_bits": 3.0,
+      "importance": 1.3893,
+      "importance_rank": 50
+    },
+    "MTNEN": {
+      "name": "MTNEN",
+      "label": "Language: Mother tongue – English component",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        162,
+        162
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "False - Respondent did not report English as mother tongue",
+        "1": "True - Respondent reported English as mother tongue"
+      },
+      "cardinality": 2,
+      "entropy_bits": 0.9789,
+      "max_entropy_bits": 1.0,
+      "importance": 0.9789,
+      "importance_rank": 68
+    },
+    "MTNFR": {
+      "name": "MTNFR",
+      "label": "Language: Mother tongue – French component",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        163,
+        163
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "False - Respondent did not report French as mother tongue",
+        "1": "True - Respondent reported French as mother tongue"
+      },
+      "cardinality": 2,
+      "entropy_bits": 0.7382,
+      "max_entropy_bits": 1.0,
+      "importance": 0.7382,
+      "importance_rank": 74
+    },
+    "MTNNO": {
+      "name": "MTNNO",
+      "label": "Language: Mother Tongue – First write-in component",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        164,
+        165
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "No non-official language",
+        "2": "Chinese languages",
+        "3": "Spanish",
+        "4": "Italian",
+        "5": "German",
+        "6": "Arabic",
+        "7": "Punjabi (Panjabi)",
+        "8": "Tagalog (Pilipino, Filipino)",
+        "9": "Portuguese",
+        "10": "All other single languages",
+        "88": "Not available"
+      },
+      "cardinality": 11,
+      "entropy_bits": 1.6174,
+      "max_entropy_bits": 3.4594,
+      "importance": 1.6174,
+      "importance_rank": 38
+    },
+    "NAICS": {
+      "name": "NAICS",
+      "label": "Labour: Industry sectors (based on the North American Industry Classification System [NAICS] Canada 2017 version 3.0)",
+      "topic": "Labour",
+      "reference_guide": "Labour Reference Guide",
+      "position": [
+        166,
+        167
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Agriculture and other resource based industries",
+        "2": "Construction",
+        "3": "Manufacturing",
+        "4": "Wholesale trade",
+        "5": "Retail trade",
+        "6": "Finance and real estate",
+        "7": "Health care and social assistance",
+        "8": "Educational services",
+        "9": "Business services",
+        "10": "Public administration",
+        "11": "Other services",
+        "88": "Not available",
+        "99": "Not applicable"
+      },
+      "cardinality": 13,
+      "entropy_bits": 2.8978,
+      "max_entropy_bits": 3.7004,
+      "importance": 2.8978,
+      "importance_rank": 9
+    },
+    "NOC21": {
+      "name": "NOC21",
+      "label": "Labour: Broad Occupational Category (based on the National Occupational Classification [NOC] 2021 version 1.0)",
+      "topic": "Labour",
+      "reference_guide": "Labour Reference Guide",
+      "position": [
+        168,
+        169
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "0 Legislative and senior management occupations",
+        "2": "1 Business, finance and administration occupations",
+        "3": "2 Natural and applied sciences and related occupations",
+        "4": "3 Health occupations",
+        "5": "4 Occupations in education, law and social, community and government services",
+        "6": "5 Occupations in art, culture, recreation and sport",
+        "7": "6 Sales and service occupations",
+        "8": "7 Trades, transport and equipment operators and related occupations",
+        "9": "8 Natural resources, agriculture and related production occupations",
+        "10": "9 Occupations in manufacturing and utilities",
+        "88": "Not available",
+        "99": "Not Applicable"
+      },
+      "cardinality": 12,
+      "entropy_bits": 2.7205,
+      "max_entropy_bits": 3.585,
+      "importance": 2.7205,
+      "importance_rank": 10
+    },
+    "NOL": {
+      "name": "NOL",
+      "label": "Language: Knowledge of non-official languages - First write-in component",
+      "topic": "Language",
+      "reference_guide": "Languages Reference Guide",
+      "position": [
+        170,
+        171
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "No non-official language",
+        "2": "Chinese languages",
+        "3": "Spanish",
+        "4": "Italian",
+        "5": "German",
+        "6": "Arabic",
+        "7": "Punjabi (Panjabi)",
+        "8": "Tagalog (Pilipino, Filipino)",
+        "9": "Portuguese",
+        "10": "All other single languages",
+        "11": "Respondents with multiples non-official languages",
+        "88": "Not available"
+      },
+      "cardinality": 12,
+      "entropy_bits": 1.8185,
+      "max_entropy_bits": 3.585,
+      "importance": 1.8185,
+      "importance_rank": 31
+    },
+    "NOS": {
+      "name": "NOS",
+      "label": "Housing suitability",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        172,
+        172
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Not suitable",
+        "1": "Suitable"
+      },
+      "cardinality": 2,
+      "entropy_bits": 0.4553,
+      "max_entropy_bits": 1.0,
+      "importance": 0.4553,
+      "importance_rank": 81
+    },
+    "POB": {
+      "name": "POB",
+      "label": "Place of birth of person",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        173,
+        173
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Canada",
+        "2": "United States of America",
+        "3": "Europe",
+        "4": "Asia",
+        "5": "Other",
+        "8": "Not available"
+      },
+      "cardinality": 6,
+      "entropy_bits": 1.4205,
+      "max_entropy_bits": 2.585,
+      "importance": 1.4205,
+      "importance_rank": 45
+    },
+    "POBPAR1": {
+      "name": "POBPAR1",
+      "label": "Place of birth of parent 1",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        174,
+        174
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Canada",
+        "2": "United States of America",
+        "3": "Europe",
+        "4": "Asia",
+        "5": "Other",
+        "8": "Not available"
+      },
+      "cardinality": 6,
+      "entropy_bits": 1.6803,
+      "max_entropy_bits": 2.585,
+      "importance": 1.6803,
+      "importance_rank": 36
+    },
+    "POBPAR2": {
+      "name": "POBPAR2",
+      "label": "Place of birth of parent 2",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        175,
+        175
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Canada",
+        "2": "United States of America",
+        "3": "Europe",
+        "4": "Asia",
+        "5": "Other",
+        "8": "Not available"
+      },
+      "cardinality": 6,
+      "entropy_bits": 1.8629,
+      "max_entropy_bits": 2.585,
+      "importance": 1.8629,
+      "importance_rank": 28
+    },
+    "POWST": {
+      "name": "POWST",
+      "label": "Commuting: Place of work status",
+      "topic": "Commuting",
+      "reference_guide": "Commuting Reference Guide",
+      "position": [
+        176,
+        176
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Worked at home",
+        "2": "No fixed workplace",
+        "3": "Worked outside Canada",
+        "4": "Worked in census subdivision (municipality) of residence",
+        "5": "Worked in a different census subdivision (municipality) within the census division (county) of residence",
+        "6": "Worked in a different census division (county)",
+        "7": "Worked in a different province or territory",
+        "8": "Not available",
+        "9": "Not applicable"
+      },
+      "cardinality": 9,
+      "entropy_bits": 2.1448,
+      "max_entropy_bits": 3.1699,
+      "importance": 2.1448,
+      "importance_rank": 22
+    },
+    "PR": {
+      "name": "PR",
+      "label": "Province or territory of current residence (2021)",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        177,
+        178
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "10": "Newfoundland and Labrador",
+        "11": "Prince Edward Island",
+        "12": "Nova Scotia",
+        "13": "New Brunswick",
+        "24": "Quebec",
+        "35": "Ontario",
+        "46": "Manitoba",
+        "47": "Saskatchewan",
+        "48": "Alberta",
+        "59": "British Columbia",
+        "70": "Northern Canada"
+      },
+      "cardinality": 11,
+      "entropy_bits": 2.4913,
+      "max_entropy_bits": 3.4594,
+      "importance": 2.4913,
+      "importance_rank": 16
+    },
+    "PR1": {
+      "name": "PR1",
+      "label": "Mobility 1: Province or territory of residence 1 year ago (2020)",
+      "topic": "Mobility 1",
+      "reference_guide": "Mobility and Migration Reference Guide",
+      "position": [
+        179,
+        180
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "10": "Newfoundland and Labrador",
+        "11": "Prince Edward Island",
+        "12": "Nova Scotia",
+        "13": "New Brunswick",
+        "24": "Quebec",
+        "35": "Ontario",
+        "46": "Manitoba",
+        "47": "Saskatchewan",
+        "48": "Alberta",
+        "59": "British Columbia",
+        "70": "Northern Canada",
+        "88": "Not available"
+      },
+      "cardinality": 12,
+      "entropy_bits": 2.627,
+      "max_entropy_bits": 3.585,
+      "importance": 2.627,
+      "importance_rank": 14
+    },
+    "PR5": {
+      "name": "PR5",
+      "label": "Mobility 5: Province or territory of residence 5 years ago (2016)",
+      "topic": "Mobility 5",
+      "reference_guide": "Mobility and Migration Reference Guide",
+      "position": [
+        181,
+        182
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "10": "Newfoundland and Labrador",
+        "11": "Prince Edward Island",
+        "12": "Nova Scotia",
+        "13": "New Brunswick",
+        "24": "Quebec",
+        "35": "Ontario",
+        "46": "Manitoba",
+        "47": "Saskatchewan",
+        "48": "Alberta",
+        "59": "British Columbia",
+        "70": "Northern Canada",
+        "99": "Not applicable"
+      },
+      "cardinality": 12,
+      "entropy_bits": 2.7142,
+      "max_entropy_bits": 3.585,
+      "importance": 2.7142,
+      "importance_rank": 11
+    },
+    "PRESMORTG": {
+      "name": "PRESMORTG",
+      "label": "Mortgage, presence of",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        183,
+        183
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Without mortgage",
+        "1": "With mortgage",
+        "8": "Not available",
+        "9": "Not applicable"
+      },
+      "cardinality": 4,
+      "entropy_bits": 1.5157,
+      "max_entropy_bits": 2.0,
+      "importance": 1.5157,
+      "importance_rank": 42
+    },
+    "PRIHM": {
+      "name": "PRIHM",
+      "label": "Primary household maintainer",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        184,
+        184
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Person is not primary household maintainer",
+        "1": "Person is primary household maintainer"
+      },
+      "cardinality": 2,
+      "entropy_bits": 0.9785,
+      "max_entropy_bits": 1.0,
+      "importance": 0.9785,
+      "importance_rank": 69
+    },
+    "PWDUR": {
+      "name": "PWDUR",
+      "label": "Commuting: Commuting duration",
+      "topic": "Commuting",
+      "reference_guide": "Commuting Reference Guide",
+      "position": [
+        185,
+        185
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Less than 15 minutes",
+        "2": "Between 15 and 29 minutes",
+        "3": "Between 30 and 44 minutes",
+        "4": "Between 45 and 59 minutes",
+        "5": "60 minutes and over",
+        "8": "Not available",
+        "9": "Not applicable"
+      },
+      "cardinality": 7,
+      "entropy_bits": 1.7918,
+      "max_entropy_bits": 2.8074,
+      "importance": 1.7918,
+      "importance_rank": 33
+    },
+    "PWLEAVE": {
+      "name": "PWLEAVE",
+      "label": "Commuting: Time leaving for work",
+      "topic": "Commuting",
+      "reference_guide": "Commuting Reference Guide",
+      "position": [
+        186,
+        186
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "5:00 a.m. to 5:59 a.m.",
+        "2": "6:00 a.m. to 6:59 a.m.",
+        "3": "7:00 a.m. to 7:59 a.m.",
+        "4": "8:00 a.m. to 8:59 a.m.",
+        "5": "9:00 a.m. to 3:59 p.m.",
+        "6": "4:00 p.m. to 4:59 a.m.",
+        "9": "Not applicable"
+      },
+      "cardinality": 7,
+      "entropy_bits": 1.8277,
+      "max_entropy_bits": 2.8074,
+      "importance": 1.8277,
+      "importance_rank": 30
+    },
+    "PWOCC": {
+      "name": "PWOCC",
+      "label": "Commuting: Commuting vehicle occupancy",
+      "topic": "Commuting",
+      "reference_guide": "Commuting Reference Guide",
+      "position": [
+        187,
+        187
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "1 worker",
+        "2": "2 workers",
+        "3": "3 or more workers",
+        "9": "Not applicable"
+      },
+      "cardinality": 4,
+      "entropy_bits": 1.0296,
+      "max_entropy_bits": 2.0,
+      "importance": 1.0296,
+      "importance_rank": 64
+    },
+    "PWPR": {
+      "name": "PWPR",
+      "label": "Commuting: Place of work province",
+      "topic": "Commuting",
+      "reference_guide": "Commuting Reference Guide",
+      "position": [
+        188,
+        189
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "10": "Newfoundland and Labrador",
+        "11": "Prince Edward Island",
+        "12": "Nova Scotia",
+        "13": "New Brunswick",
+        "24": "Quebec",
+        "35": "Ontario",
+        "46": "Manitoba",
+        "47": "Saskatchewan",
+        "48": "Alberta",
+        "59": "British Columbia",
+        "70": "Northern Canada",
+        "88": "Not available",
+        "99": "Not applicable"
+      },
+      "cardinality": 13,
+      "entropy_bits": 2.1103,
+      "max_entropy_bits": 3.7004,
+      "importance": 2.1103,
+      "importance_rank": 23
+    },
+    "REGIND": {
+      "name": "REGIND",
+      "label": "Indigenous: Registered or Treaty Indian status",
+      "topic": "Indigenous",
+      "reference_guide": "Indigenous Peoples Reference Guide",
+      "position": [
+        190,
+        190
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Not a Registered or Treaty Indian",
+        "1": "Registered or Treaty Indian"
+      },
+      "cardinality": 2,
+      "entropy_bits": 0.155,
+      "max_entropy_bits": 1.0,
+      "importance": 0.155,
+      "importance_rank": 88
+    },
+    "RELIG": {
+      "name": "RELIG",
+      "label": "Religion: Aggregated responses",
+      "topic": "Religion",
+      "reference_guide": "Religion Reference Guide",
+      "position": [
+        191,
+        192
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Buddhist",
+        "2": "Catholic",
+        "3": "Other Christian",
+        "4": "Hindu",
+        "5": "Jewish",
+        "6": "Muslim",
+        "7": "Sikh",
+        "8": "Other religions and spiritual traditions",
+        "9": "No religion and secular perspectives",
+        "88": "Not available"
+      },
+      "cardinality": 10,
+      "entropy_bits": 2.3303,
+      "max_entropy_bits": 3.3219,
+      "importance": 2.3303,
+      "importance_rank": 19
+    },
+    "REPAIR": {
+      "name": "REPAIR",
+      "label": "Dwelling condition",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        193,
+        193
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Regular maintenance needed",
+        "2": "Minor repairs are needed",
+        "3": "Major repairs needed"
+      },
+      "cardinality": 3,
+      "entropy_bits": 1.1264,
+      "max_entropy_bits": 1.585,
+      "importance": 1.1264,
+      "importance_rank": 58
+    },
+    "ROOM": {
+      "name": "ROOM",
+      "label": "Rooms",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        194,
+        195
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "1 room",
+        "2": "2 rooms",
+        "3": "3 rooms",
+        "4": "4 rooms",
+        "5": "5 rooms",
+        "6": "6 rooms",
+        "7": "7 rooms",
+        "8": "8 rooms",
+        "9": "9 rooms",
+        "10": "10 rooms",
+        "11": "11 rooms or more"
+      },
+      "cardinality": 11,
+      "entropy_bits": 3.2259,
+      "max_entropy_bits": 3.4594,
+      "importance": 3.2259,
+      "importance_rank": 4
+    },
+    "SSGRAD": {
+      "name": "SSGRAD",
+      "label": "Education: Secondary (high) school diploma or equivalency certificate",
+      "topic": "Education",
+      "reference_guide": "Education Reference Guide",
+      "position": [
+        200,
+        201
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "No high school diploma or equivalency certificate, no postsecondary certificate, diploma or degree",
+        "2": "No high school diploma or equivalency certificate, with apprenticeship or trades certificate or diploma",
+        "3": "No high school diploma or equivalency certificate, with college, CEGEP or other non-university certificate or diploma",
+        "4": "With high school diploma or equivalency certificate, no postsecondary certificate, diploma or degree",
+        "5": "With high school diploma or equivalency certificate, with apprenticeship or trades certificate or diploma",
+        "6": "With high school diploma or equivalency certificate, with college, CEGEP or other non-university certificate or diploma",
+        "7": "With high school diploma or equivalency certificate, with university certificate or diploma below bachelor level",
+        "8": "With high school diploma or equivalency certificate, with bachelor's degree",
+        "9": "With high school diploma or equivalency certificate, with university certificate, diploma or degree above bachelor level",
+        "88": "Not available",
+        "99": "Not applicable"
+      },
+      "cardinality": 11,
+      "entropy_bits": 3.0698,
+      "max_entropy_bits": 3.4594,
+      "importance": 3.0698,
+      "importance_rank": 5
+    },
+    "STIR_GRP": {
+      "name": "STIR_GRP",
+      "label": "Shelter-cost-to-income ratio, groups",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        202,
+        202
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Less than 30%",
+        "1": "30% or more",
+        "9": "Not applicable"
+      },
+      "cardinality": 3,
+      "entropy_bits": 0.6985,
+      "max_entropy_bits": 1.585,
+      "importance": 0.6985,
+      "importance_rank": 76
+    },
+    "SUBSIDY": {
+      "name": "SUBSIDY",
+      "label": "Subsidized housing",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        203,
+        203
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Not subsidized",
+        "1": "Subsidized",
+        "8": "Not available",
+        "9": "Not applicable"
+      },
+      "cardinality": 4,
+      "entropy_bits": 1.0182,
+      "max_entropy_bits": 2.0,
+      "importance": 1.0182,
+      "importance_rank": 65
+    },
+    "TENUR": {
+      "name": "TENUR",
+      "label": "Tenure",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        204,
+        204
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Owner",
+        "2": "Renter; or Dwelling provided by the local government, First Nation or Indian band",
+        "8": "Not available"
+      },
+      "cardinality": 3,
+      "entropy_bits": 0.8615,
+      "max_entropy_bits": 1.585,
+      "importance": 0.8615,
+      "importance_rank": 73
+    },
+    "VISMIN": {
+      "name": "VISMIN",
+      "label": "Visible minority",
+      "topic": "General",
+      "reference_guide": null,
+      "position": [
+        229,
+        229
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "Not a visible minority",
+        "1": "Visible minority",
+        "8": "Not available"
+      },
+      "cardinality": 3,
+      "entropy_bits": 0.9896,
+      "max_entropy_bits": 1.585,
+      "importance": 0.9896,
+      "importance_rank": 66
+    },
+    "WKSWRK": {
+      "name": "WKSWRK",
+      "label": "Labour: Weeks worked during the reference year",
+      "topic": "Labour",
+      "reference_guide": "Labour Reference Guide",
+      "position": [
+        230,
+        230
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "0": "None - worked in 2021 only",
+        "1": "1 to 9 weeks in 2020",
+        "2": "10 to 19 weeks in 2020",
+        "3": "20 to 29 weeks in 2020",
+        "4": "30 to 39 weeks in 2020",
+        "5": "40 to 48 weeks in 2020",
+        "6": "49 to 52 weeks in 2020",
+        "9": "Not applicable"
+      },
+      "cardinality": 8,
+      "entropy_bits": 2.2133,
+      "max_entropy_bits": 3.0,
+      "importance": 2.2133,
+      "importance_rank": 20
+    },
+    "WRKACT": {
+      "name": "WRKACT",
+      "label": "Labour: Work activity during the reference year",
+      "topic": "Labour",
+      "reference_guide": "Labour Reference Guide",
+      "position": [
+        231,
+        232
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Worked before 2020 or never worked",
+        "2": "Worked in 2021 only",
+        "3": "Worked 1 to 13 weeks full time",
+        "4": "Worked 1 to 13 weeks part time",
+        "5": "Worked 14 to 26 weeks full time",
+        "6": "Worked 14 to 26 weeks part time",
+        "7": "Worked 27 to 39 weeks full time",
+        "8": "Worked 27 to 39 weeks part time",
+        "9": "Worked 40 to 48 weeks full time",
+        "10": "Worked 40 to 48 weeks part time",
+        "11": "Worked 49 to 52 weeks full time",
+        "12": "Worked 49 to 52 weeks part time",
+        "99": "Not applicable"
+      },
+      "cardinality": 13,
+      "entropy_bits": 2.9038,
+      "max_entropy_bits": 3.7004,
+      "importance": 2.9038,
+      "importance_rank": 8
+    },
+    "YRIM": {
+      "name": "YRIM",
+      "label": "Immigration: Year of immigration",
+      "topic": "Immigration",
+      "reference_guide": "Place of Birth, Generation Status, Citizenship and Immigration Reference Guide",
+      "position": [
+        233,
+        233
+      ],
+      "type": "categorical",
+      "queryable": true,
+      "codes": {
+        "1": "Before 1980",
+        "2": "1980 to 1990",
+        "3": "1991 to 2000",
+        "4": "2001 to 2005",
+        "5": "2006 to 2010",
+        "6": "2011 to 2015",
+        "7": "2016 to 2021",
+        "8": "Not available",
+        "9": "Not applicable"
+      },
+      "cardinality": 9,
+      "entropy_bits": 1.5226,
+      "max_entropy_bits": 3.1699,
+      "importance": 1.5226,
+      "importance_rank": 41
+    }
+  },
+  "continuous_fields": {
+    "EFCOVID_ERB": {
+      "name": "EFCOVID_ERB",
+      "label": "Income: COVID-19 – Emergency and recovery benefits of economic families for all persons",
+      "topic": "Income",
+      "position": [
+        58,
+        65
+      ],
+      "type": "continuous",
+      "queryable": false,
+      "note": "Continuous value in the microdata; not exposed as a quasi-identifier."
+    },
+    "EFDIMBM_2018": {
+      "name": "EFDIMBM_2018",
+      "label": "Income: Disposable income for 2018-base MBM of economic family for all persons",
+      "topic": "Income",
+      "position": [
+        68,
+        75
+      ],
+      "type": "continuous",
+      "queryable": false,
+      "note": "Continuous value in the microdata; not exposed as a quasi-identifier."
+    },
+    "EMPIN": {
+      "name": "EMPIN",
+      "label": "Income: Employment income",
+      "topic": "Income",
+      "position": [
+        76,
+        83
+      ],
+      "type": "continuous",
+      "queryable": false,
+      "note": "Continuous value in the microdata; not exposed as a quasi-identifier."
+    },
+    "FCOND": {
+      "name": "FCOND",
+      "label": "Condominium fees",
+      "topic": "General",
+      "position": [
+        86,
+        93
+      ],
+      "type": "continuous",
+      "queryable": false,
+      "note": "Continuous value in the microdata; not exposed as a quasi-identifier."
+    },
+    "GTRFS": {
+      "name": "GTRFS",
+      "label": "Income: Government transfers",
+      "topic": "Income",
+      "position": [
+        98,
+        105
+      ],
+      "type": "continuous",
+      "queryable": false,
+      "note": "Continuous value in the microdata; not exposed as a quasi-identifier."
+    },
+    "INCTAX": {
+      "name": "INCTAX",
+      "label": "Income: Income taxes",
+      "topic": "Income",
+      "position": [
+        122,
+        129
+      ],
+      "type": "continuous",
+      "queryable": false,
+      "note": "Continuous value in the microdata; not exposed as a quasi-identifier."
+    },
+    "MRKINC": {
+      "name": "MRKINC",
+      "label": "Income: Market income",
+      "topic": "Income",
+      "position": [
+        154,
+        161
+      ],
+      "type": "continuous",
+      "queryable": false,
+      "note": "Continuous value in the microdata; not exposed as a quasi-identifier."
+    },
+    "SHELCO": {
+      "name": "SHELCO",
+      "label": "Shelter cost",
+      "topic": "General",
+      "position": [
+        196,
+        199
+      ],
+      "type": "continuous",
+      "queryable": false,
+      "note": "Continuous value in the microdata; not exposed as a quasi-identifier."
+    },
+    "TOTINC": {
+      "name": "TOTINC",
+      "label": "Income: Total income",
+      "topic": "Income",
+      "position": [
+        205,
+        212
+      ],
+      "type": "continuous",
+      "queryable": false,
+      "note": "Continuous value in the microdata; not exposed as a quasi-identifier."
+    },
+    "TOTINC_AT": {
+      "name": "TOTINC_AT",
+      "label": "Income: After-tax income",
+      "topic": "Income",
+      "position": [
+        213,
+        220
+      ],
+      "type": "continuous",
+      "queryable": false,
+      "note": "Continuous value in the microdata; not exposed as a quasi-identifier."
+    },
+    "VALUE": {
+      "name": "VALUE",
+      "label": "Value (owner estimated)",
+      "topic": "General",
+      "position": [
+        221,
+        228
+      ],
+      "type": "continuous",
+      "queryable": false,
+      "note": "Continuous value in the microdata; not exposed as a quasi-identifier."
+    }
+  }
+}

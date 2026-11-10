@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SILO Score — PUMF Re-Identification Risk</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2230; --border:#2b333f;
+    --text:#e6edf3; --muted:#8b949e; --accent:#3b82f6; --accent2:#2563eb;
+    --pass:#3fb950; --fail:#f85149; --warn:#d29922;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg);color:var(--text);line-height:1.5}
+  header{padding:20px 28px;border-bottom:1px solid var(--border);background:var(--panel);
+         position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+  header h1{margin:0;font-size:20px;letter-spacing:.3px}
+  header .sub{color:var(--muted);font-size:13px;margin-top:2px}
+  .api{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--muted)}
+  .api input{background:var(--panel2);border:1px solid var(--border);color:var(--text);
+             padding:6px 8px;border-radius:6px;width:210px;font-size:13px}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--muted);display:inline-block}
+  .dot.ok{background:var(--pass)} .dot.bad{background:var(--fail)}
+  main{max-width:1080px;margin:0 auto;padding:22px}
+  .toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px}
+  .toolbar .count{color:var(--muted);font-size:13px}
+  .search-all input{background:var(--panel2);border:1px solid var(--border);color:var(--text);
+             padding:8px 10px;border-radius:7px;width:260px;font-size:13px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column}
+  .card h3{margin:0 0 2px;font-size:14px;display:flex;align-items:center;gap:8px}
+  .rank{font-size:11px;color:#fff;background:var(--accent2);border-radius:20px;padding:1px 8px;font-weight:600}
+  .card .meta{color:var(--muted);font-size:11px;margin-bottom:8px}
+  .card .fname{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent);font-size:12px}
+  .minisearch{margin-bottom:8px}
+  .minisearch input{width:100%;background:var(--panel2);border:1px solid var(--border);color:var(--text);
+             padding:6px 8px;border-radius:6px;font-size:12px}
+  .opts{max-height:168px;overflow:auto;padding-right:4px}
+  .opts.scroll{border:1px solid var(--border);border-radius:6px;padding:6px}
+  label.opt{display:flex;gap:8px;align-items:flex-start;font-size:13px;padding:3px 2px;cursor:pointer;border-radius:4px}
+  label.opt:hover{background:var(--panel2)}
+  label.opt input{margin-top:3px}
+  .opt .code{color:var(--muted);font-variant-numeric:tabular-nums;min-width:26px}
+  .selbar{margin-top:8px;font-size:11px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+  .selbar a{color:var(--accent);cursor:pointer}
+  .pager{display:flex;gap:6px;justify-content:center;align-items:center;margin:20px 0;flex-wrap:wrap}
+  .pager button{background:var(--panel2);border:1px solid var(--border);color:var(--text);
+                padding:7px 11px;border-radius:7px;cursor:pointer;font-size:13px}
+  .pager button.active{background:var(--accent2);border-color:var(--accent2)}
+  .pager button:disabled{opacity:.4;cursor:default}
+  .settings{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-top:8px}
+  .settings h2{margin:0 0 12px;font-size:16px}
+  .srow{display:flex;flex-wrap:wrap;gap:18px}
+  .fset{display:flex;flex-direction:column;gap:4px}
+  .fset label{font-size:12px;color:var(--muted)}
+  .fset select,.fset input{background:var(--panel2);border:1px solid var(--border);color:var(--text);
+             padding:7px 9px;border-radius:7px;font-size:13px;min-width:120px}
+  .prov{display:flex;flex-wrap:wrap;gap:6px;max-width:640px}
+  .prov label{display:flex;gap:5px;align-items:center;font-size:12px;background:var(--panel2);
+              border:1px solid var(--border);border-radius:20px;padding:4px 10px;cursor:pointer}
+  .actions{display:flex;gap:12px;align-items:center;margin-top:16px}
+  .run{background:var(--accent2);border:none;color:#fff;padding:11px 22px;border-radius:8px;
+       font-size:15px;font-weight:600;cursor:pointer}
+  .run:hover{background:var(--accent)}
+  .ghost{background:transparent;border:1px solid var(--border);color:var(--muted);padding:11px 16px;border-radius:8px;cursor:pointer}
+  .result{margin-top:16px;border-radius:10px;border:1px solid var(--border);background:var(--panel);overflow:hidden}
+  .result .head{padding:16px 18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .gauge{font-size:40px;font-weight:700}
+  .verdict{font-size:14px;font-weight:700;padding:4px 12px;border-radius:20px}
+  .verdict.PASS{background:rgba(63,185,80,.15);color:var(--pass)}
+  .verdict.FAIL{background:rgba(248,81,73,.15);color:var(--fail)}
+  .result .body{padding:0 18px 16px;font-size:13px;color:var(--muted)}
+  .rec{margin-top:10px;background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:12px}
+  .rec b{color:var(--warn)}
+  table.path{width:100%;border-collapse:collapse;margin-top:8px;font-size:12px}
+  table.path th,table.path td{text-align:left;padding:5px 8px;border-bottom:1px solid var(--border)}
+  table.path td.num{text-align:right;font-variant-numeric:tabular-nums}
+  table.path tr.hot td{color:var(--fail)}
+  pre.raw{background:#010409;border:1px solid var(--border);border-radius:8px;padding:12px;overflow:auto;font-size:12px;color:var(--muted)}
+  details{margin-top:12px}
+  summary{cursor:pointer;color:var(--accent);font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>SILO Score <span style="color:var(--muted);font-weight:400">· re-identification risk</span></h1>
+    <div class="sub">Statistical Isolation &amp; Linkage Odds — StatCan 2021 Census Hierarchical PUMF</div>
+  </div>
+  <div class="api">
+    <span class="dot" id="dot"></span>
+    <label>API</label>
+    <input id="apibase" value="" placeholder="http://127.0.0.1:8000" />
+  </div>
+</header>
+
+<main>
+  <div class="toolbar">
+    <div class="count" id="count">Loading fields…</div>
+    <div class="search-all">
+      <input id="fieldfilter" placeholder="Filter fields by name/label…" />
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="pager" id="pagerTop" style="display:none"></div>
+
+  <!-- Settings + Run appear at the bottom of EVERY page -->
+  <div class="settings">
+    <h2>Settings</h2>
+    <div class="srow">
+      <div class="fset">
+        <label>Score type</label>
+        <select id="s_type">
+          <option value="scale">scale (SILO Score + PASS/FAIL)</option>
+          <option value="score">score (1/X · 100%)</option>
+          <option value="size">size (group size X)</option>
+        </select>
+      </div>
+      <div class="fset">
+        <label>Population</label>
+        <select id="s_pop">
+          <option value="weighted">weighted (default)</option>
+          <option value="unweighted">unweighted</option>
+        </select>
+      </div>
+      <div class="fset">
+        <label>k_safe</label><input id="s_ksafe" type="number" value="20" min="2" step="1" />
+      </div>
+      <div class="fset">
+        <label>X_cap</label><input id="s_xcap" type="number" value="1000" min="2" step="1" />
+      </div>
+      <div class="fset">
+        <label>threshold</label><input id="s_thr" type="number" value="50" min="0" max="100" step="1" />
+      </div>
+    </div>
+    <div class="fset" style="margin-top:14px">
+      <label>Provinces (none selected = all of Canada)</label>
+      <div class="prov" id="provbox"></div>
+    </div>
+    <div class="actions">
+      <button class="run" id="runBtn">▶ Run SILO Score</button>
+      <button class="ghost" id="clearBtn">Clear all selections</button>
+      <span class="count" id="selsummary"></span>
+    </div>
+  </div>
+
+  <div id="resultWrap"></div>
+  <div class="pager" id="pagerBottom"></div>
+</main>
+
+<script>
+const PER_PAGE = 10;
+let FIELDS = [];        // ordered most->least identifying
+let PROVINCES = {};     // code -> label
+let selections = {};    // field -> Set(codes)
+let page = 0;
+let filterText = "";
+
+function apiBase(){
+  let v = document.getElementById('apibase').value.trim();
+  return v.replace(/\/+$/,'');
+}
+
+async function init(){
+  const guess = location.origin && location.origin.startsWith('http') ? location.origin : 'http://127.0.0.1:8000';
+  document.getElementById('apibase').value = guess;
+  await loadMeta();
+}
+
+async function loadMeta(){
+  const dot = document.getElementById('dot');
+  try{
+    const [f, p] = await Promise.all([
+      fetch(apiBase()+'/fields').then(r=>r.json()),
+      fetch(apiBase()+'/provinces').then(r=>r.json())
+    ]);
+    FIELDS = f.fields;
+    PROVINCES = p.codes;
+    dot.className = 'dot ok';
+    document.getElementById('count').textContent =
+      f.total_fields + ' quasi-identifier fields · ordered most → least identifying';
+    renderProvinces();
+    render();
+  }catch(e){
+    dot.className='dot bad';
+    document.getElementById('count').textContent =
+      'Could not reach API at '+apiBase()+'. Start it with: python -m idscore.server';
+  }
+}
+
+function filteredFields(){
+  if(!filterText) return FIELDS;
+  const t = filterText.toLowerCase();
+  return FIELDS.filter(f => f.name.toLowerCase().includes(t) || f.label.toLowerCase().includes(t));
+}
+
+function render(){
+  const list = filteredFields();
+  const pages = Math.max(1, Math.ceil(list.length/PER_PAGE));
+  if(page>=pages) page = pages-1;
+  const grid = document.getElementById('grid');
+  grid.innerHTML='';
+  const slice = list.slice(page*PER_PAGE,(page+1)*PER_PAGE);
+  for(const f of slice) grid.appendChild(fieldCard(f));
+  renderPager('pagerTop',pages);
+  renderPager('pagerBottom',pages);
+  updateSelSummary();
+}
+
+function fieldCard(f){
+  const card = document.createElement('div');
+  card.className='card';
+  const codes = Object.entries(f.codes); // [ [code,label], ... ]
+  const big = codes.length > 8;
+  card.innerHTML = `
+    <h3><span class="rank">#${f.rank}</span> <span class="fname">${f.name}</span></h3>
+    <div class="meta">${escapeHtml(f.label)} · ${f.cardinality} categories · H=${f.entropy_bits.toFixed(2)} bits</div>
+  `;
+  if(big){
+    const ms = document.createElement('div');
+    ms.className='minisearch';
+    ms.innerHTML = `<input placeholder="Search ${f.cardinality} options…" />`;
+    card.appendChild(ms);
+    ms.querySelector('input').addEventListener('input', e=>{
+      const t = e.target.value.toLowerCase();
+      opts.querySelectorAll('label.opt').forEach(l=>{
+        l.style.display = l.dataset.search.includes(t) ? '' : 'none';
+      });
+    });
+  }
+  const opts = document.createElement('div');
+  opts.className = 'opts' + (big?' scroll':'');
+  const sel = selections[f.name] || new Set();
+  for(const [code,label] of codes){
+    const id = f.name+'_'+code;
+    const l = document.createElement('label');
+    l.className='opt';
+    l.dataset.search = (code+' '+label).toLowerCase();
+    l.innerHTML = `<input type="checkbox" value="${code}" ${sel.has(code)?'checked':''}/>
+                   <span class="code">${code}</span><span>${escapeHtml(label)}</span>`;
+    l.querySelector('input').addEventListener('change', e=>{
+      if(!selections[f.name]) selections[f.name]=new Set();
+      if(e.target.checked) selections[f.name].add(code);
+      else { selections[f.name].delete(code); if(!selections[f.name].size) delete selections[f.name]; }
+      updateSelSummary(); updateCardBar(f.name,bar);
+    });
+    opts.appendChild(l);
+  }
+  card.appendChild(opts);
+  const bar = document.createElement('div');
+  bar.className='selbar';
+  card.appendChild(bar);
+  updateCardBar(f.name,bar);
+  return card;
+}
+
+function updateCardBar(name,bar){
+  const n = (selections[name]||new Set()).size;
+  bar.innerHTML = `<span>${n?('<b style=\"color:var(--text)\">'+n+'</b> selected'):'any value'}</span>` +
+                  (n?'<a data-clear="'+name+'">clear</a>':'');
+  const a = bar.querySelector('a');
+  if(a) a.onclick=()=>{ delete selections[name]; render(); };
+}
+
+function renderPager(id,pages){
+  const el = document.getElementById(id);
+  if(pages<=1){ el.style.display='none'; return; }
+  el.style.display='flex';
+  el.innerHTML='';
+  const mk=(txt,pg,dis,act)=>{const b=document.createElement('button');b.textContent=txt;
+    if(dis)b.disabled=true;if(act)b.className='active';
+    b.onclick=()=>{page=pg;render();window.scrollTo({top:0,behavior:'smooth'});};return b;};
+  el.appendChild(mk('‹ Prev',page-1,page===0));
+  for(let i=0;i<pages;i++){
+    if(pages>9 && Math.abs(i-page)>2 && i!==0 && i!==pages-1){
+      if(i===1||i===pages-2){const s=document.createElement('span');s.textContent='…';s.style.color='var(--muted)';el.appendChild(s);}
+      continue;
+    }
+    el.appendChild(mk(i+1,i,false,i===page));
+  }
+  el.appendChild(mk('Next ›',page+1,page===pages-1));
+}
+
+function renderProvinces(){
+  const box = document.getElementById('provbox');
+  box.innerHTML='';
+  for(const [code,label] of Object.entries(PROVINCES)){
+    const l=document.createElement('label');
+    l.innerHTML=`<input type="checkbox" value="${code}"/> ${escapeHtml(label)}`;
+    box.appendChild(l);
+  }
+}
+
+function updateSelSummary(){
+  const nf = Object.keys(selections).length;
+  const nv = Object.values(selections).reduce((a,s)=>a+s.size,0);
+  document.getElementById('selsummary').textContent =
+    nf? `${nf} field(s), ${nv} value(s) constrained` : 'no constraints — whole population';
+}
+
+function buildQuery(){
+  const q = {};
+  for(const [f,set] of Object.entries(selections)){
+    const arr=[...set].map(Number);
+    q[f]= arr.length===1?arr[0]:arr;
+  }
+  const provs=[...document.querySelectorAll('#provbox input:checked')].map(i=>Number(i.value));
+  q.settings={
+    type:document.getElementById('s_type').value,
+    population:document.getElementById('s_pop').value,
+    k_safe:Number(document.getElementById('s_ksafe').value),
+    X_cap:Number(document.getElementById('s_xcap').value),
+    threshold:Number(document.getElementById('s_thr').value),
+  };
+  if(provs.length) q.settings.provinces=provs;
+  return q;
+}
+
+async function run(){
+  const q = buildQuery();
+  const wrap=document.getElementById('resultWrap');
+  wrap.innerHTML='<div class="result"><div class="body" style="padding:16px">Running…</div></div>';
+  try{
+    const res = await fetch(apiBase()+'/query',{method:'POST',
+      headers:{'Content-Type':'application/json'},body:JSON.stringify(q)});
+    const data = await res.json();
+    renderResult(data,res.ok,q);
+  }catch(e){
+    wrap.innerHTML='<div class="result"><div class="body" style="padding:16px;color:var(--fail)">Request failed: '+escapeHtml(e.message)+'</div></div>';
+  }
+  wrap.scrollIntoView({behavior:'smooth'});
+}
+
+function renderResult(data,ok,q){
+  const wrap=document.getElementById('resultWrap');
+  if(!ok){
+    let rows=(data.details||[]).map(d=>`<tr><td>${escapeHtml(d.field||'')}</td><td>${escapeHtml(d.error||'')}</td></tr>`).join('');
+    wrap.innerHTML=`<div class="result"><div class="head"><span class="verdict FAIL">VALIDATION ERROR</span></div>
+      <div class="body"><table class="path"><tr><th>Field</th><th>Problem</th></tr>${rows}</table>
+      <details><summary>Raw response</summary><pre class="raw">${escapeHtml(JSON.stringify(data,null,2))}</pre></details></div></div>`;
+    return;
+  }
+  let headHtml='', bodyHtml='';
+  if(data.type==='scale'){
+    const r=data.result;
+    const color = r.verdict==='PASS'?'var(--pass)':'var(--fail)';
+    headHtml=`<div class="gauge" style="color:${color}">${r.silo_score.toFixed(1)}</div>
+      <div><div class="verdict ${r.verdict}">${r.verdict}</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px">band: ${r.band} · threshold ${r.parameters.threshold}</div></div>
+      <div style="margin-left:auto;text-align:right;font-size:13px;color:var(--muted)">
+      group size X = <b style="color:var(--text)">${fmt(r.group_size_X)}</b></div>`;
+    if(data.recommendation){
+      const rec=data.recommendation;
+      let path=(rec.reduction_path||[]).map(s=>{
+        const hot = s.field===rec.most_identifiable_field?' class="hot"':'';
+        return `<tr${hot}><td>${escapeHtml(s.field)}</td><td>${escapeHtml(s.label)}</td>
+          <td class="num">${fmt(s.group_size_before)}</td><td class="num">${fmt(s.group_size_after)}</td>
+          <td class="num">${(s.drop_ratio*100).toFixed(1)}%</td></tr>`;
+      }).join('');
+      bodyHtml=`<div class="rec"><div>⚠ <b>Most identifiable field: ${escapeHtml(rec.most_identifiable_field)}</b> — ${escapeHtml(rec.field_label)}</div>
+        <div style="margin-top:6px">${escapeHtml(rec.advice)}</div>
+        <table class="path"><tr><th>Field</th><th>Label</th><th>before</th><th>after</th><th>drop</th></tr>${path}</table></div>`;
+    }
+  } else if(data.type==='score'){
+    headHtml=`<div class="gauge" style="color:var(--accent)">${data.result.reciprocal_score_pct.toFixed(3)}%</div>
+      <div style="margin-left:auto;text-align:right;font-size:13px;color:var(--muted)">1/X · 100% · group size X = <b style="color:var(--text)">${fmt(data.result.group_size_X)}</b></div>`;
+  } else {
+    headHtml=`<div><div style="font-size:12px;color:var(--muted)">group size X</div>
+      <div class="gauge">${fmt(data.result.group_size_X)}</div></div>`;
+  }
+  wrap.innerHTML=`<div class="result"><div class="head">${headHtml}</div>
+    <div class="body">${bodyHtml}
+    <details><summary>Request &amp; raw response</summary>
+    <pre class="raw">REQUEST:\n${escapeHtml(JSON.stringify(q,null,2))}\n\nRESPONSE:\n${escapeHtml(JSON.stringify(data,null,2))}</pre>
+    </details></div></div>`;
+}
+
+function fmt(n){return (typeof n==='number')?n.toLocaleString(undefined,{maximumFractionDigits:0}):n;}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+document.getElementById('runBtn').onclick=run;
+document.getElementById('clearBtn').onclick=()=>{selections={};document.querySelectorAll('#provbox input:checked').forEach(i=>i.checked=false);render();};
+document.getElementById('fieldfilter').addEventListener('input',e=>{filterText=e.target.value.trim();page=0;render();});
+document.getElementById('apibase').addEventListener('change',loadMeta);
+init();
+</script>
+</body>
+</html>
